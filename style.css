@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito", sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(135deg, #fff0f5, #ffe6f0);
+    overflow: hidden;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+    width: 400px;
+    padding: 25px;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 10px 30px rgba(255, 0, 102, 0.2);
+
+    position: relative;
+    z-index: 1;
+}
+
+.main img {
+    width: 200px;
+}
+
+.main h2 {
+    font-size: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.btns {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    width: 140px;
+    height: 50px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+
+    background: linear-gradient(45deg, #ff0055, #ff4da6, #ff0055);
+    background-size: 200% 200%;
+    background-position: left;
+
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+
+    box-shadow: 0 4px 15px rgba(255, 0, 102, 0.4);
+
+    outline: none;
+    appearance: none;
+
+    transition: 
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background-position 0.5s ease;
+}
+
+button:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(255, 0, 102, 0.6);
+    background-position: right;
+}
+
+button:active {
+    transform: scale(0.95);
+    box-shadow: 0 3px 10px rgba(255, 0, 102, 0.4);
+}
+.heart {
+    position: absolute;
+    bottom: -20px;
+    color: red;
+    opacity: 0.8;
+
+    animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: translateY(-50vh);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(-60vh);
+        opacity: 0;
+    }
+}
+.f2 {
+    transition: transform 0.2s ease-out;
+}
+/* затемнение */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: 0.3s;
+    z-index: 10;
+}
+
+/* активное окно */
+.modal.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* контент */
+.modal-content {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 300px;
+
+    box-shadow: 0 10px 30px rgba(255, 0, 102, 0.3);
+
+    transform: scale(0.8);
+    transition: 0.3s;
+}
+
+.modal.active .modal-content {
+    transform: scale(1);
+}
+
+/* текст */
+.modal-content p {
+    margin: 15px 0;
+    color: #333;
+}
